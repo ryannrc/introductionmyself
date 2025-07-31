@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryan | Web Personal Sinematik</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/gsap@3.12.2/dist/gsap.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body.dark {
+      background-color: #0f172a;
+      color: white;
+      font-family: 'Orbitron', sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+    .glow {
+      box-shadow: 0 0 10px #6366f1, 0 0 20px #6366f1;
+    }
+    .flip-card { perspective: 1000px; }
+    .flip-card-inner {
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      backface-visibility: hidden;
+      position: absolute;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1rem; text-align: center;
+    }
+    .flip-card-back { transform: rotateY(180deg); }
+    .progress-bar {
+      height: 10px;
+      background-color: #1f2937;
+      border-radius: 9999px;
+    }
+    .progress-bar-fill {
+      height: 10px;
+      background-image: linear-gradient(to right, #6366f1, #818cf8);
+      border-radius: 9999px;
+    }
+    .video-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      object-fit: cover;
+      z-index: -10;
+      filter: brightness(0.4);
+    }
+    .icon-link:hover {
+      color: #818cf8;
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+    .marquee {
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .marquee h3 {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-100%, 0); }
+    }
+  </style>
+</head>
+<body class="dark font-sans">
 
+<video autoplay muted loop class="video-bg">
+  <source src="https://cdn.coverr.co/videos/coverr-earth-from-space-5580/1080p.mp4" type="video/mp4">
+</video>
+
+<!-- MARQUEE -->
+<div class="marquee bg-indigo-600 text-white py-2 text-center text-sm">
+  <h3>Selamat datang di web personal Ryan! - Web Developer | Mahasiswa | Penggemar Teknologi | Barca Fans ⚽</h3>
+</div>
+
+<!-- NAVBAR -->
+<nav class="fixed w-full flex justify-between items-center p-4 bg-black bg-opacity-50 text-white z-50">
+  <div class="font-bold text-lg tracking-wider">Ryan.dev</div>
+  <div class="md:flex hidden space-x-4">
+    <a href="#about" class="hover:text-indigo-400">Tentang</a>
+    <a href="#skills" class="hover:text-indigo-400">Keahlian</a>
+    <a href="#portfolio" class="hover:text-indigo-400">Projek</a>
+    <a href="#anonim" class="hover:text-indigo-400">Pesan</a>
+    <a href="#order" class="hover:text-green-400">Order</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-6">
+  <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeIn">Halo, Saya <span class="text-indigo-400">Ryan</span></h1>
+  <h2 id="typewriter" class="text-xl text-gray-300 mb-6"></h2>
+  <a href="#portfolio" class="px-6 py-3 rounded-full bg-indigo-600 glow animate-bounce">Lihat Portofolio</a>
+  <p class="mt-4 text-sm text-indigo-300">Tertarik punya website sekeren ini? Aku bisa bantu buatkan!</p>
+  <a href="#order" class="mt-4 px-6 py-2 border border-indigo-400 rounded-full text-indigo-400 hover:bg-indigo-600 hover:text-white transition">Pesan Sekarang</a>
+  <div class="flex mt-6 space-x-6 text-xl">
+    <a href="https://instagram.com/ryann.rc_" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
+    <a href="https://github.com/yourgithub" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+    <a href="mailto:youremail@example.com" class="icon-link"><i class="fas fa-envelope"></i></a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 px-6 text-center max-w-3xl mx-auto" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6 text-indigo-400">Tentang Saya</h2>
+  <p>Saya Ryan, mahasiswa teknik asal Bogor. Saat ini saya sedang menempuh pendidikan kuliah dan sangat menyukai dunia teknologi, web development, serta sepak bola—terutama klub FC Barcelona.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-20 px-6 max-w-4xl mx-auto" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-10 text-center text-indigo-400">Keahlian</h2>
+  <div class="space-y-6">
+    <div>
+      <div class="flex justify-between"><span>HTML & CSS</span><span>90%</span></div>
+      <div class="progress-bar"><div class="progress-bar-fill w-11/12"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between"><span>JavaScript</span><span>80%</span></div>
+      <div class="progress-bar"><div class="progress-bar-fill w-4/5"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between"><span>Tailwind</span><span>75%</span></div>
+      <div class="progress-bar"><div class="progress-bar-fill w-3/4"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-20 px-6" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-10 text-center text-indigo-400">Portofolio</h2>
+  <div class="grid md:grid-cols-3 gap-8">
+    <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
+      <div class="flip-card-inner relative w-full h-full">
+        <div class="flip-card-front bg-indigo-600">Project 1</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 1</div>
+      </div>
+    </div>
+    <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
+      <div class="flip-card-inner relative w-full h-full">
+        <div class="flip-card-front bg-indigo-600">Project 2</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 2</div>
+      </div>
+    </div>
+    <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
+      <div class="flip-card-inner relative w-full h-full">
+        <div class="flip-card-front bg-indigo-600">Project 3</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 3</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANONIM -->
+<section id="anonim" class="py-20 px-6 max-w-xl mx-auto text-center" data-aos="fade-up">
+  <h2 class="text-3xl font-bold mb-6 text-indigo-400">Kirim Pesan Anonim</h2>
+  <form onsubmit="handleSubmit(event)" class="space-y-4">
+    <textarea id="pesan" class="w-full p-3 rounded bg-gray-900 text-white" rows="4" placeholder="Tulis pesanmu di sini..."></textarea>
+    <button type="submit" class="px-6 py-2 bg-indigo-600 glow rounded">Kirim</button>
+    <p id="notif" class="text-green-400 mt-2 hidden">Pesan terkirim.</p>
+  </form>
+</section>
+
+  <!-- ORDER -->
+  <!-- ORDER -->
+  <section id="order" class="py-20 px-6 max-w-xl mx-auto text-center" data-aos="zoom-in">
+    <h2 class="text-3xl font-bold mb-6 text-indigo-400">Ingin Punya Website Keren?</h2>
+    <p class="mb-6">Saya siap bantu wujudkan website impian kamu. Dari portofolio, toko online, hingga landing page promosi!</p>
+
+    <!-- Tombol Instagram -->
+    <a href="https://instagram.com/ryann.rc_" target="_blank" class="px-8 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition text-lg">
+      <i class="fab fa-instagram mr-2"></i>DM Saya di Instagram
+    </a>
+
+    <!-- Teks kecil tambahan -->
+    <!-- Teks kecil tambahan -->
+    <p class="text-sm mt-6 text-pink-300">📩 Klik tombol di atas untuk langsung kirim pesan via Instagram!</p>
+  </section>
+
+
+
+<!-- SCRIPT -->
+<script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+  const typewriter = new Typewriter(document.getElementById('typewriter'), { loop: true });
+  typewriter
+    .typeString("Web Developer")
+    .pauseFor(1200)
+    .deleteAll()
+    .typeString("Mahasiswa Teknik")
+    .pauseFor(1200)
+    .deleteAll()
+    .typeString("Barcelona Fans")
+    .pauseFor(1200)
+    .start();
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const msg = document.getElementById("pesan").value.trim();
+    if (msg.length > 0) {
+      document.getElementById("pesan").value = "";
+      document.getElementById("notif").classList.remove("hidden");
+      setTimeout(() => {
+        document.getElementById("notif").classList.add("hidden");
+      }, 3000);
+    }
+  }
+</script>
+</body>
+</html>

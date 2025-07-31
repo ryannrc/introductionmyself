@@ -110,8 +110,8 @@
   <a href="#order" class="mt-4 px-6 py-2 border border-indigo-400 rounded-full text-indigo-400 hover:bg-indigo-600 hover:text-white transition">Pesan Sekarang</a>
   <div class="flex mt-6 space-x-6 text-xl">
     <a href="https://instagram.com/ryann.rc_" target="_blank" class="icon-link"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/yourgithub" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
-    <a href="mailto:youremail@example.com" class="icon-link"><i class="fas fa-envelope"></i></a>
+    <a href="https://github.com/ryannrc" target="_blank" class="icon-link"><i class="fab fa-github"></i></a>
+    <a href="mailto:fcxvk30@gmail.com" class="icon-link"><i class="fas fa-envelope"></i></a>
   </div>
 </section>
 
@@ -146,20 +146,29 @@
   <div class="grid md:grid-cols-3 gap-8">
     <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
       <div class="flip-card-inner relative w-full h-full">
-        <div class="flip-card-front bg-indigo-600">Project 1</div>
-        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 1</div>
+        <div class="flip-card-front bg-indigo-600">Game Mario Bross Mini</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Game Mario Bros Mini dibuat menggunakan PHP, HTML, dan CSS. Game ini berjalan di browser dengan logika permainan ditangani oleh PHP, termasuk pergerakan karakter, sistem skor, dan deteksi tabrakan. Proyek ini dikembangkan di kelas 11 sebagai latihan penerapan dasar-dasar pemrograman web.
+</div>
       </div>
     </div>
     <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
       <div class="flip-card-inner relative w-full h-full">
-        <div class="flip-card-front bg-indigo-600">Project 2</div>
-        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 2</div>
+        <div class="flip-card-front bg-indigo-600">Website Kasir Restaurant</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Saya membuat website kasir menggunakan HTML, CSS, dan JavaScript pada semester akhir kelas 11. Website ini memiliki fitur:
+
+        Manajemen stok makanan,
+
+        Perhitungan total pemasukan dan pengeluaran,
+
+        Tampilan responsif dan interaktif,
+
+        Seluruh data dihitung otomatis dan ditampilkan langsung di halaman web.</div>
       </div>
     </div>
     <div class="flip-card h-64 bg-gray-800 rounded-lg overflow-hidden">
       <div class="flip-card-inner relative w-full h-full">
-        <div class="flip-card-front bg-indigo-600">Project 3</div>
-        <div class="flip-card-back bg-indigo-400 text-black">Deskripsi Project 3</div>
+        <div class="flip-card-front bg-indigo-600">Proyek Aplikasi Keuangan Kantor</div>
+        <div class="flip-card-back bg-indigo-400 text-black">Aplikasi ini dibuat untuk mencatat pemasukan dan pengeluaran keuangan kantor. Menggunakan database terstruktur, dengan sistem login untuk admin dan karyawan. Data transaksi disimpan otomatis dan dapat diakses sesuai peran pengguna.</div>
       </div>
     </div>
   </div>
@@ -175,25 +184,16 @@
   </form>
 </section>
 
-  <!-- ORDER -->
-  <!-- ORDER -->
-  <section id="order" class="py-20 px-6 max-w-xl mx-auto text-center" data-aos="zoom-in">
-    <h2 class="text-3xl font-bold mb-6 text-indigo-400">Ingin Punya Website Keren?</h2>
-    <p class="mb-6">Saya siap bantu wujudkan website impian kamu. Dari portofolio, toko online, hingga landing page promosi!</p>
+<!-- ORDER -->
+<section id="order" class="py-20 px-6 max-w-xl mx-auto text-center" data-aos="zoom-in">
+  <h2 class="text-3xl font-bold mb-6 text-indigo-400">Ingin Punya Website Keren?</h2>
+  <p class="mb-6">Saya siap bantu wujudkan website impian kamu. Dari portofolio, toko online, hingga landing page promosi!</p>
+  <a href="https://instagram.com/ryann.rc_" target="_blank" class="px-8 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition text-lg">
+    <i class="fab fa-instagram mr-2"></i>DM Saya di Instagram
+  </a>
+  <p class="text-sm mt-6 text-pink-300">📩 Klik tombol di atas untuk langsung kirim pesan via Instagram!</p>
+</section>
 
-    <!-- Tombol Instagram -->
-    <a href="https://instagram.com/ryann.rc_" target="_blank" class="px-8 py-3 bg-pink-500 text-white rounded-full hover:bg-pink-600 transition text-lg">
-      <i class="fab fa-instagram mr-2"></i>DM Saya di Instagram
-    </a>
-
-    <!-- Teks kecil tambahan -->
-    <!-- Teks kecil tambahan -->
-    <p class="text-sm mt-6 text-pink-300">📩 Klik tombol di atas untuk langsung kirim pesan via Instagram!</p>
-  </section>
-
-
-
-<!-- SCRIPT -->
 <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
@@ -210,16 +210,23 @@
     .pauseFor(1200)
     .start();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const msg = document.getElementById("pesan").value.trim();
-    if (msg.length > 0) {
-      document.getElementById("pesan").value = "";
-      document.getElementById("notif").classList.remove("hidden");
-      setTimeout(() => {
-        document.getElementById("notif").classList.add("hidden");
-      }, 3000);
-    }
+    if (!msg) return;
+
+    const botToken = "7554327822:AAEzcyf3MPRQm9YSgEotsYb1wzlItyKgL8U";
+    const chatId = "8154091752";
+    const text = encodeURIComponent("📩 Pesan Anonim:\n\n" + msg);
+
+    // Kirim ke Telegram
+    await fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}`);
+
+    document.getElementById("pesan").value = "";
+    document.getElementById("notif").classList.remove("hidden");
+    setTimeout(() => {
+      document.getElementById("notif").classList.add("hidden");
+    }, 3000);
   }
 </script>
 </body>
